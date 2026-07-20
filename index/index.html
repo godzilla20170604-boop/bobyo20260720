@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>2025/26 十大受歡迎電玩遊戲大作</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+      :root {
+        --brand-red: #df3f3f;
+        --ink: #202124;
+        --muted: #6c757d;
+        --line: #e8e8e8;
+        --paper: #ffffff;
+        --page-gray: #dfe2e6;
+        --soft: #eceff3;
+      }
+
+      body {
+        color: var(--ink);
+        background: var(--page-gray);
+        font-family: "Noto Sans TC", "Microsoft JhengHei", Arial, sans-serif;
+      }
+
+      .navbar {
+        min-height: 88px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .navbar-brand {
+        font-size: 1.35rem;
+        letter-spacing: 0;
+      }
+
+      .nav-link {
+        color: #222;
+        font-weight: 500;
+        padding-inline: 1rem !important;
+      }
+
+      .nav-link.active,
+      .nav-link:hover {
+        color: #fff;
+        background: #212121;
+      }
+
+      .hero {
+        background: var(--brand-red);
+        color: #fff;
+        min-height: 190px;
+        display: flex;
+        align-items: center;
+      }
+
+      .hero h1 {
+        font-size: clamp(2rem, 4vw, 3.7rem);
+        font-style: italic;
+        font-weight: 700;
+        letter-spacing: 0;
+      }
+
+      .section-title {
+        font-weight: 800;
+        letter-spacing: 0;
+      }
+
+      .about-image {
+        width: 100%;
+        min-height: 320px;
+        object-fit: cover;
+        object-position: top center;
+        border-radius: 8px;
+      }
+
+      .about-panel {
+        background: var(--soft);
+      }
+
+      .game-card {
+        height: 100%;
+        background: var(--paper);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        overflow: hidden;
+        transition: transform .2s ease, box-shadow .2s ease;
+      }
+
+      .game-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 1rem 2rem rgba(0, 0, 0, .12);
+      }
+
+      .game-card img {
+        height: 250px;
+        object-fit: cover;
+        background: #ddd;
+      }
+
+      .rank {
+        display: inline-flex;
+        width: 2.4rem;
+        height: 2.4rem;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        background: var(--brand-red);
+        border-radius: 50%;
+        font-weight: 800;
+      }
+
+      .badge-soft {
+        color: #7a1f1f;
+        background: #ffe9e9;
+      }
+
+      .btn-brand {
+        color: #fff;
+        background: #212121;
+        border-color: #212121;
+      }
+
+      .btn-brand:hover {
+        color: #fff;
+        background: var(--brand-red);
+        border-color: var(--brand-red);
+      }
+
+      footer {
+        color: #fff;
+        background: #202124;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-white sticky-top">
+      <div class="container-fluid px-lg-5">
+        <a class="navbar-brand" href="#top">超人氣電玩</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainMenu" aria-controls="mainMenu" aria-expanded="false" aria-label="切換選單">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="mainMenu">
+          <ul class="navbar-nav align-items-lg-center gap-lg-2">
+            <li class="nav-item"><a class="nav-link active" href="#top">首頁</a></li>
+            <li class="nav-item"><a class="nav-link" href="#about">關於我們</a></li>
+            <li class="nav-item"><a class="nav-link" href="#games">遊戲官網</a></li>
+            <li class="nav-item"><a class="nav-link" href="#games">影片連結</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <header id="top" class="hero">
+      <div class="container">
+        <h1 class="mb-0">2025/26年十大受歡迎電玩遊戲大作</h1>
+      </div>
+    </header>
+
+    <main>
+      <section id="about" class="py-5 about-panel">
+        <div class="container">
+          <div class="row g-4 align-items-center">
+            <div class="col-lg-6">
+              <img class="about-image shadow-sm" src="../images/電玩.jpg" alt="超人氣電玩網站參考畫面">
+            </div>
+            <div class="col-lg-6">
+              <p class="text-uppercase text-danger fw-bold mb-2">About Us</p>
+              <h2 class="section-title mb-3">關於我們</h2>
+              <p class="fs-5 text-secondary">
+                本站整理 2025 到 2026 年玩家高度期待與討論度高的電玩作品，提供快速瀏覽、官方網站與影片連結，讓使用者能用最短時間掌握每款遊戲的特色。
+              </p>
+              <p class="mb-0">
+                版面以清楚的主選單、醒目的主標題、模組化卡片與響應式欄位設計為核心，無論在桌機、平板或手機上都能順暢閱讀。
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="games" class="py-5">
+        <div class="container">
+          <div class="text-center mb-5">
+            <p class="text-uppercase text-danger fw-bold mb-2">Top 10 Games</p>
+            <h2 class="section-title">十大人氣遊戲介紹</h2>
+          </div>
+
+          <div class="row g-4">
+            <div class="col-md-6 col-xl-4">
+              <article class="card game-card">
+                <img src="../images/薩爾達傳說曠野之息.webp" class="card-img-top" alt="薩爾達傳說遊戲封面">
+                <div class="card-body d-flex flex-column">
+                  <div class="d-flex align-items-center gap-3 mb-3">
+                    <span class="rank">1</span>
+                    <h3 class="h4 mb-0">薩爾達傳說</h3>
+                  </div>
+                  <span class="badge badge-soft align-self-start mb-3">動作冒險</span>
+                  <p class="card-text text-secondary">任天堂代表性的奇幻冒險系列，以探索、解謎與開放式關卡設計帶來長久不衰的魅力。</p>
+                  <div class="mt-auto d-flex gap-2">
+                    <a class="btn btn-brand flex-fill" href="https://www.zelda.com/" target="_blank" rel="noopener">官網</a>
+                    <a class="btn btn-outline-dark flex-fill" href="https://www.youtube.com/watch?v=uHGShqcAHlQ" target="_blank" rel="noopener">影片</a>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <div class="col-md-6 col-xl-4">
+              <article class="card game-card">
+                <img src="../images/2025~2026game.jpg" class="card-img-top" alt="GTA VI 遊戲封面">
+                <div class="card-body d-flex flex-column">
+                  <div class="d-flex align-items-center gap-3 mb-3">
+                    <span class="rank">2</span>
+                    <h3 class="h4 mb-0">GTA VI</h3>
+                  </div>
+                  <span class="badge badge-soft align-self-start mb-3">開放世界</span>
+                  <p class="card-text text-secondary">Rockstar 最新大型開放世界作品，回到副城風格舞台，主打犯罪敘事與高自由度探索。</p>
+                  <div class="mt-auto d-flex gap-2">
+                    <a class="btn btn-brand flex-fill" href="https://www.rockstargames.com/VI" target="_blank" rel="noopener">官網</a>
+                    <a class="btn btn-outline-dark flex-fill" href="https://www.youtube.com/watch?v=QdBZY2fkU-0" target="_blank" rel="noopener">影片</a>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <div class="col-md-6 col-xl-4">
+              <article class="card game-card">
+                <img src="../images/Pragmata_cover.jpg" class="card-img-top" alt="人機迷網遊戲封面">
+                <div class="card-body d-flex flex-column">
+                  <div class="d-flex align-items-center gap-3 mb-3">
+                    <span class="rank">3</span>
+                    <h3 class="h4 mb-0">人機迷網</h3>
+                  </div>
+                  <span class="badge badge-soft align-self-start mb-3">科幻動作</span>
+                  <p class="card-text text-secondary">以近未來科技與機械威脅為核心，結合懸疑敘事、射擊動作與電影感演出。</p>
+                  <div class="mt-auto d-flex gap-2">
+                    <a class="btn btn-brand flex-fill" href="https://www.capcom-games.com/pragmata/" target="_blank" rel="noopener">官網</a>
+                    <a class="btn btn-outline-dark flex-fill" href="https://www.youtube.com/watch?v=xoxCboik0Is" target="_blank" rel="noopener">影片</a>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <div class="col-md-6 col-xl-4">
+              <article class="card game-card">
+                <img src="../images/873604273ec95e6901b511c38dfb64f3bb72c8de.jpg" class="card-img-top" alt="007初露鋒芒遊戲封面">
+                <div class="card-body d-flex flex-column">
+                  <div class="d-flex align-items-center gap-3 mb-3">
+                    <span class="rank">4</span>
+                    <h3 class="h4 mb-0">007初露鋒芒</h3>
+                  </div>
+                  <span class="badge badge-soft align-self-start mb-3">動作冒險</span>
+                  <p class="card-text text-secondary">IO Interactive 打造的 James Bond 原創起源故事，聚焦潛行、追逐與特務任務。</p>
+                  <div class="mt-auto d-flex gap-2">
+                    <a class="btn btn-brand flex-fill" href="https://007firstlight.com/" target="_blank" rel="noopener">官網</a>
+                    <a class="btn btn-outline-dark flex-fill" href="https://www.youtube.com/@007GameIOI" target="_blank" rel="noopener">影片</a>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <div class="col-md-6 col-xl-4">
+              <article class="card game-card">
+                <img src="../images/70f944649cc6bf5721493ad8ecd6d18a828f9e675cc42d25.jpg" class="card-img-top" alt="沙羅週期遊戲封面">
+                <div class="card-body d-flex flex-column">
+                  <div class="d-flex align-items-center gap-3 mb-3">
+                    <span class="rank">5</span>
+                    <h3 class="h4 mb-0">沙羅週期</h3>
+                  </div>
+                  <span class="badge badge-soft align-self-start mb-3">科幻射擊</span>
+                  <p class="card-text text-secondary">Housemarque 的科幻動作新作，主打高速戰鬥、循環挑戰與強烈視覺風格。</p>
+                  <div class="mt-auto d-flex gap-2">
+                    <a class="btn btn-brand flex-fill" href="https://www.playstation.com/en-us/games/saros/" target="_blank" rel="noopener">官網</a>
+                    <a class="btn btn-outline-dark flex-fill" href="https://www.youtube.com/watch?v=3gwsQvDGh4o" target="_blank" rel="noopener">影片</a>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <div class="col-md-6 col-xl-4">
+              <article class="card game-card">
+                <img src="../images/魔物獵人荒野.png" class="card-img-top" alt="魔物獵人荒野遊戲封面">
+                <div class="card-body d-flex flex-column">
+                  <div class="d-flex align-items-center gap-3 mb-3">
+                    <span class="rank">6</span>
+                    <h3 class="h4 mb-0">魔物獵人荒野</h3>
+                  </div>
+                  <span class="badge badge-soft align-self-start mb-3">共鬥狩獵</span>
+                  <p class="card-text text-secondary">Capcom 招牌狩獵系列新作，強調動態環境、生態變化與多人合作狩獵節奏。</p>
+                  <div class="mt-auto d-flex gap-2">
+                    <a class="btn btn-brand flex-fill" href="https://www.monsterhunter.com/wilds/" target="_blank" rel="noopener">官網</a>
+                    <a class="btn btn-outline-dark flex-fill" href="https://www.youtube.com/watch?v=cMWAEb5v5QE" target="_blank" rel="noopener">影片</a>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <div class="col-md-6 col-xl-4">
+              <article class="card game-card">
+                <img src="../images/DS2_Preorder_Date.jpg" class="card-img-top" alt="死亡擱淺2遊戲封面">
+                <div class="card-body d-flex flex-column">
+                  <div class="d-flex align-items-center gap-3 mb-3">
+                    <span class="rank">7</span>
+                    <h3 class="h4 mb-0">死亡擱淺2</h3>
+                  </div>
+                  <span class="badge badge-soft align-self-start mb-3">動作冒險</span>
+                  <p class="card-text text-secondary">小島工作室延續「連結」主題，加入更廣闊旅程、角色關係與奇幻末日敘事。</p>
+                  <div class="mt-auto d-flex gap-2">
+                    <a class="btn btn-brand flex-fill" href="https://www.kojimaproductions.jp/en/death-stranding-2" target="_blank" rel="noopener">官網</a>
+                    <a class="btn btn-outline-dark flex-fill" href="https://www.youtube.com/watch?v=8aMVMY4yDDI" target="_blank" rel="noopener">影片</a>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <div class="col-md-6 col-xl-4">
+              <article class="card game-card">
+                <img src="../images/page_bg_raw.jpg" class="card-img-top" alt="艾爾登法環遊戲封面">
+                <div class="card-body d-flex flex-column">
+                  <div class="d-flex align-items-center gap-3 mb-3">
+                    <span class="rank">8</span>
+                    <h3 class="h4 mb-0">艾爾登法環</h3>
+                  </div>
+                  <span class="badge badge-soft align-self-start mb-3">動作 RPG</span>
+                  <p class="card-text text-secondary">黑暗奇幻動作 RPG 代表作，憑藉高難度戰鬥、世界探索與角色養成吸引大量玩家。</p>
+                  <div class="mt-auto d-flex gap-2">
+                    <a class="btn btn-brand flex-fill" href="https://en.bandainamcoent.eu/elden-ring/elden-ring-nightreign" target="_blank" rel="noopener">官網</a>
+                    <a class="btn btn-outline-dark flex-fill" href="https://www.youtube.com/watch?v=jQlXWRJeYBw" target="_blank" rel="noopener">影片</a>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <div class="col-md-6 col-xl-4">
+              <article class="card game-card">
+                <img src="../images/羊蹄山戰鬼.avif" class="card-img-top" alt="羊蹄山戰鬼遊戲封面">
+                <div class="card-body d-flex flex-column">
+                  <div class="d-flex align-items-center gap-3 mb-3">
+                    <span class="rank">9</span>
+                    <h3 class="h4 mb-0">羊蹄山戰鬼</h3>
+                  </div>
+                  <span class="badge badge-soft align-self-start mb-3">武士冒險</span>
+                  <p class="card-text text-secondary">以北海道羊蹄山為靈感的武士動作冒險，延續壯闊場景與俐落劍鬥演出。</p>
+                  <div class="mt-auto d-flex gap-2">
+                    <a class="btn btn-brand flex-fill" href="https://www.playstation.com/en-us/games/ghost-of-yotei/" target="_blank" rel="noopener">官網</a>
+                    <a class="btn btn-outline-dark flex-fill" href="https://www.youtube.com/watch?v=pjI09zFXaEw" target="_blank" rel="noopener">影片</a>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <div class="col-md-6 col-xl-4">
+              <article class="card game-card">
+                <img src="../images/刺客教條：暗影者.jpg" class="card-img-top" alt="刺客教條暗影者遊戲封面">
+                <div class="card-body d-flex flex-column">
+                  <div class="d-flex align-items-center gap-3 mb-3">
+                    <span class="rank">10</span>
+                    <h3 class="h4 mb-0">刺客教條：暗影者</h3>
+                  </div>
+                  <span class="badge badge-soft align-self-start mb-3">潛行動作</span>
+                  <p class="card-text text-secondary">系列來到日本封建時代，透過忍者與武士雙主角呈現潛行、戰鬥與歷史場景。</p>
+                  <div class="mt-auto d-flex gap-2">
+                    <a class="btn btn-brand flex-fill" href="https://www.ubisoft.com/en-us/game/assassins-creed/shadows" target="_blank" rel="noopener">官網</a>
+                    <a class="btn btn-outline-dark flex-fill" href="https://www.youtube.com/watch?v=tY0HfLWgVuE" target="_blank" rel="noopener">影片</a>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="py-4">
+      <div class="container d-flex flex-column flex-md-row justify-content-between gap-2">
+        <p class="mb-0">Copyright &copy; 2026 超人氣電玩. All Rights Reserved.</p>
+        <p class="mb-0">網站製作年份：2026</p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
