@@ -1,7 +1,7 @@
 
 <!doctype html>
 <html lang="zh-TW" class="h-full">
- <head><script src="/codelet/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIn0..KTBfV3bmy_b1fbN8.-hFztZZ7maRHq25AMFPLOPOPelU32_0_XSlu5jnrhemHtOyBJxWQe7WLErVEPHocUdtz1cmgyjnruJs6UoNPMNAWn4rgYQjtHw2HiPf-5Akye08jZeWRdeKdn6T7lKjPzEfw2E002WWNx61vdX5M.0Qm1KNTt8lzBz_kn2FV7_A/telemetry_sdk.js?pin_id=3829179613630b68bfb90a9c8f84b680"></script>
+ <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Google tag (Google Ads) -->
@@ -13,13 +13,11 @@
     gtag('config', 'AW-18338761743');
   </script>
   <title>2025~2026 十大人氣電玩</title>
-  <h1 style=“color:blue”> 電玩歷史介紹 </h1>
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
   <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
-  <script src="/codelet/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIn0..KTBfV3bmy_b1fbN8.-hFztZZ7maRHq25AMFPLOPOPelU32_0_XSlu5jnrhemHtOyBJxWQe7WLErVEPHocUdtz1cmgyjnruJs6UoNPMNAWn4rgYQjtHw2HiPf-5Akye08jZeWRdeKdn6T7lKjPzEfw2E002WWNx61vdX5M.0Qm1KNTt8lzBz_kn2FV7_A/element_sdk.js?pin_id=3829179613630b68bfb90a9c8f84b680"></script>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&amp;family=Orbitron:wght@700;900&amp;display=swap" rel="stylesheet">
   <style>
-    %以下為購物車按鍵屬性%
+    /* 購物車按鍵屬性 */
     a.btnstyle {
 background-color: #3498db;
   color: yellow;
@@ -74,7 +72,6 @@ background-color: #3498db;
     @keyframes twinkle { 0% { opacity: 0.3; } 100% { opacity: 1; } }
   </style>
   <style>body { box-sizing: border-box; }</style>
-  <script src="/codelet/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIn0..KTBfV3bmy_b1fbN8.-hFztZZ7maRHq25AMFPLOPOPelU32_0_XSlu5jnrhemHtOyBJxWQe7WLErVEPHocUdtz1cmgyjnruJs6UoNPMNAWn4rgYQjtHw2HiPf-5Akye08jZeWRdeKdn6T7lKjPzEfw2E002WWNx61vdX5M.0Qm1KNTt8lzBz_kn2FV7_A/data_sdk.js?pin_id=3829179613630b68bfb90a9c8f84b680" type="text/javascript"></script>
  </head>
  <body class="h-full bg-gray-200 text-gray-900">
 
@@ -340,6 +337,7 @@ function renderGames() {
 renderGames();
 
 // Element SDK
+if (window.elementSdk) {
 const defaultConfig = {
   page_title: "2025~2026 十大人氣電玩",
   background_color: "#e5e7eb",
@@ -379,6 +377,7 @@ window.elementSdk.init({
     ["page_title", config.page_title || defaultConfig.page_title]
   ])
 });
+}
 </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a0f842b8f38c0738',t:'MTc4MjA5OTkzMS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</body>
 </html>
