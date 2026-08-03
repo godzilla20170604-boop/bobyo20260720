@@ -10,6 +10,20 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Diagnostic: show working directory and files
+        run: |
+          echo "== PWD =="; pwd
+          echo "== LIST ROOT =="; ls -la
+          echo "== GIT STATUS =="; git status --porcelain || true
+          echo "== GIT REMOTE =="; git remote -v || true
+          echo "== SIZE =="; du -sh . || true
+
+      - name: Diagnostic: show publish candidate (top files)
+        run: |
+          echo "== TOP FILES =="; find . -maxdepth 2 -type f | head -n 40 || true
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
