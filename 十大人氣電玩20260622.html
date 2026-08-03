@@ -70,6 +70,42 @@ background-color: #3498db;
       animation: twinkle 2s infinite alternate;
     }
     @keyframes twinkle { 0% { opacity: 0.3; } 100% { opacity: 1; } }
+
+    /* Poster 限制為最多 800x800，並提供響應式回退 */
+    .poster-800 {
+      width: 100%;
+      max-width: 800px;
+      height: auto;
+      max-height: 800px;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* 右側側邊欄（桌面固定、行動裝置會回到文流） */
+    #sidebar-forms { }
+    @media (min-width: 1024px) {
+      #sidebar-forms {
+        position: fixed;
+        right: 24px;
+        top: 140px;
+        width: 360px;
+        max-width: 33%;
+        z-index: 60;
+      }
+      #sidebar-forms .section-inner {
+        background: white;
+        padding: 16px;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      }
+    }
+    /* 在平板與小螢幕上側邊欄回到文流；在非常小的螢幕（<640px）隱藏以改善閱讀 */
+    @media (max-width: 1023px) {
+      #sidebar-forms { position: static; width: 100%; }
+    }
+    @media (max-width: 639px) {
+      #sidebar-forms { display: none; }
+    }
   </style>
   <style>body { box-sizing: border-box; }</style>
  </head>
@@ -120,6 +156,55 @@ background-color: #3498db;
      </article>
     </div>
    </section>
+   <aside id="sidebar-forms" class="max-w-6xl mx-auto px-4 py-12">
+    <div class="section-inner space-y-6">
+      <div>
+        <h2 class="title-font text-xl font-black text-gray-800 mb-2">公開填寫留言</h2>
+        <p class="text-gray-500 mb-4">歡迎所有訪客留下意見或最愛的遊戲，填寫後會在本頁顯示成功訊息。</p>
+        <form id="public-form" class="grid gap-4 md:grid-cols-1">
+          <label class="space-y-2 text-sm text-gray-700">
+            您的姓名
+            <input type="text" name="name" placeholder="例如：小明" required class="w-full rounded-2xl border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-400" />
+          </label>
+          <label class="space-y-2 text-sm text-gray-700">
+            電子郵件
+            <input type="email" name="email" placeholder="example@mail.com" required class="w-full rounded-2xl border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-400" />
+          </label>
+          <label class="space-y-2 text-sm text-gray-700">
+            您最喜歡的遊戲
+            <select name="favorite" class="w-full rounded-2xl border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-400">
+              <option value="">請選擇</option>
+              <option value="薩爾達傳說曠野之息">薩爾達傳說曠野之息</option>
+              <option value="GTA VI">GTA VI</option>
+              <option value="Monster Hunter Wilds">Monster Hunter Wilds</option>
+              <option value="死亡擱淺2">死亡擱淺2</option>
+              <option value="艾爾登法環">艾爾登法環</option>
+              <option value="對馬戰鬼2">對馬戰鬼2</option>
+              <option value="007初露鋒芒">007初露鋒芒</option>
+              <option value="刺客教條：暗影者">刺客教條：暗影者</option>
+              <option value="神鬼寓言">神鬼寓言</option>
+              <option value="文明帝國 VII">文明帝國 VII</option>
+            </select>
+          </label>
+          <label class="space-y-2 text-sm text-gray-700">
+            寫下您的留言
+            <textarea name="message" rows="4" placeholder="您的建議、想法或電玩心得..." required class="w-full rounded-2xl border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-400"></textarea>
+          </label>
+          <div class="flex items-center justify-between">
+            <button type="submit" class="inline-flex items-center justify-center rounded-full bg-orange-500 px-4 py-2 text-white font-bold hover:bg-orange-400 transition-colors">送出留言</button>
+            <p class="text-xs text-gray-400">靜態示範，提交後會顯示成功訊息。</p>
+          </div>
+        </form>
+      </div>
+      <div>
+        <h3 class="title-font text-xl font-black text-gray-800 mb-2">Google 表單</h3>
+        <p class="text-gray-500 mb-4">已嵌入你的 Google 表單，訪客可直接在此頁面填寫。</p>
+        <div class="w-full overflow-hidden rounded-3xl border border-gray-200">
+          <iframe id="google-form-frame" class="w-full h-96" src="https://docs.google.com/forms/d/e/1FAIpQLSc6j5Zk0jIDG1gQnskWPkvt6MLjPiXW6_4Gn6Q5HkUlXokhIA/viewform?embedded=true" title="Google 表單" frameborder="0" marginheight="0" marginwidth="0">載入中…</iframe>
+        </div>
+      </div>
+    </div>
+   </aside>
    <footer class="text-center py-10 text-gray-600 text-sm border-t border-gray-800">
     <div class="mb-6">
      <p class="font-semibold text-gray-400 mb-3">友好連結</p>
@@ -303,9 +388,9 @@ function renderGames() {
       <div class="bg-gray-900 rounded-[14px] overflow-hidden">
         <!-- Poster Image -->
         ${posterUrl ? `
-        <div class="relative w-full h-0 pb-[56.25%] bg-gray-800 overflow-hidden group">
-          <img src="${posterUrl}" alt="${g.name}" loading="lazy" 
-               class="absolute top-0 left-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+        <div class="relative w-full flex items-center justify-center bg-gray-800 overflow-hidden group" style="min-height:200px;">
+          <img src="${posterUrl}" alt="${g.name}" loading="lazy"
+               class="poster-800 group-hover:scale-105 transition-transform duration-300"
                onerror="console.error('Poster failed:', this.src); this.parentElement.style.background='linear-gradient(135deg, #6c5ce7, #a29bfe)';"/>
           <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent"></div>
           <div class="absolute top-3 right-3 title-font text-2xl font-black bg-orange-500 text-white px-3 py-1 rounded-lg">#${g.rank}</div>
@@ -351,6 +436,23 @@ function renderGames() {
 }
 
 renderGames();
+
+const publicForm = document.getElementById('public-form');
+if (publicForm) {
+  publicForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const formData = new FormData(publicForm);
+    const submission = {
+      name: formData.get('name'),
+      email: formData.get('email'),
+      favorite: formData.get('favorite'),
+      message: formData.get('message')
+    };
+    localStorage.setItem('publicFormSubmission', JSON.stringify(submission));
+    alert('感謝您的回覆！您的留言已成功提交。');
+    publicForm.reset();
+  });
+}
 
 // Element SDK
 if (window.elementSdk) {
