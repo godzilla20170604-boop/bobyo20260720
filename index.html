@@ -448,11 +448,72 @@
     .form-wrap{
       padding:1rem;
     }
-    .form-wrap iframe{
-      width:100%;
-      height:1696px;
-      border:0;
+    .forms-grid{
+      display:grid;
+      grid-template-columns:minmax(0, 1fr) 420px;
+      gap:1rem;
+      align-items:start;
+    }
+    .google-panel{
+      position:sticky;
+      top:1rem;
+    }
+    .google-panel[data-mode="compact"]{
+      max-width:100%;
+    }
+    .google-toolbar{
+      display:flex;
+      flex-wrap:wrap;
+      gap:.5rem;
+      margin-top:.85rem;
+    }
+    .tool-btn{
+      display:inline-flex;
+      align-items:center;
+      gap:.45rem;
+      padding:.62rem .82rem;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.06);
+      color:#ecf2ff;
+      font-weight:700;
+      cursor:pointer;
+    }
+    .tool-btn[data-active="true"]{
+      background:rgba(255,183,3,.14);
+      border-color:rgba(255,183,3,.30);
+      color:#ffe49a;
+    }
+    .google-frame-shell{
+      margin-top:1rem;
+      overflow:hidden;
       border-radius:14px;
+      border:1px solid var(--line);
+      background:#fff;
+    }
+    .google-frame-shell iframe{
+      width:100%;
+      border:0;
+      display:block;
+      transition:height .2s ease, transform .2s ease;
+    }
+    .google-panel[data-mode="compact"] .google-frame-shell iframe{
+      height:760px;
+      transform:scale(.96);
+      transform-origin:top left;
+      width:104.2%;
+    }
+    .google-panel[data-mode="expanded"] .google-frame-shell iframe{
+      height:1200px;
+    }
+    .google-panel[data-mode="compact"] .google-frame-shell{
+      max-height:calc(100vh - 220px);
+      overflow:auto;
+    }
+    .google-panel[data-mode="expanded"] .google-frame-shell{
+      max-height:none;
+    }
+    .form-wrap iframe{
       background:#fff;
     }
     footer{
@@ -502,6 +563,8 @@
       .game-grid{grid-template-columns:1fr}
       .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
       .hero-copy{padding:1.25rem}
+      .forms-grid{grid-template-columns:1fr}
+      .google-panel{position:static}
     }
     @media (max-width: 640px){
       .shell{width:min(100% - 1rem, 1180px)}
@@ -670,20 +733,7 @@
       </aside>
     </section>
 
-    <section class="shell stack" style="margin-top:1rem">
-      <div class="panel form-wrap" id="forms">
-        <h2 class="section-title title-font">Google 表單</h2>
-        <p class="section-copy">這裡保留原本的嵌入流程；如果你的表單還在審核或未開放，畫面會依照 Google 的權限結果顯示。</p>
-        <div style="margin-top:1rem; overflow:hidden; border-radius:14px; border:1px solid var(--line); background:#fff">
-          <iframe
-            src="https://docs.google.com/forms/d/e/1FAIpQLSc6j5Zk0jIDG1gQnskWPkvt6MLjPiXW6_4Gn6Q5HkUlXokhIA/viewform?embedded=true"
-            title="Google 表單"
-            width="100%"
-            height="1696px"
-            loading="lazy">載入中…</iframe>
-        </div>
-      </div>
-
+    <section class="shell forms-grid" style="margin-top:1rem">
       <div class="panel form-wrap">
         <h2 class="section-title title-font">Facebook 貼文</h2>
         <p class="section-copy">把之前建立的臉書貼文嵌回來，讓首頁同時保留社群內容與外部互動入口。</p>
@@ -698,6 +748,32 @@
             allowfullscreen="true"
             allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
             title="Facebook 貼文嵌入"
+            loading="lazy">載入中…</iframe>
+        </div>
+      </div>
+
+      <div class="panel form-wrap google-panel" id="forms" data-mode="compact">
+        <div class="flex items-start justify-between gap-4 flex-wrap">
+          <div>
+            <h2 class="section-title title-font">Google 表單</h2>
+            <p class="section-copy">縮小後會放在右側，並保留表單內部捲動；需要看完整內容時可以切到展開模式。</p>
+          </div>
+          <div class="google-toolbar" role="group" aria-label="Google 表單顯示模式">
+            <button type="button" class="tool-btn" data-mode-btn="compact" data-active="true">
+              <i data-lucide="minimize-2" class="w-4 h-4"></i>縮小
+            </button>
+            <button type="button" class="tool-btn" data-mode-btn="expanded" data-active="false">
+              <i data-lucide="maximize-2" class="w-4 h-4"></i>展開
+            </button>
+          </div>
+        </div>
+        <div class="google-frame-shell">
+          <iframe
+            class="google-iframe"
+            src="https://docs.google.com/forms/d/e/1FAIpQLSc6j5Zk0jIDG1gQnskWPkvt6MLjPiXW6_4Gn6Q5HkUlXokhIA/viewform?embedded=true"
+            title="Google 表單"
+            height="760px"
+            scrolling="yes"
             loading="lazy">載入中…</iframe>
         </div>
       </div>
@@ -884,7 +960,9 @@
       visible: document.getElementById("stat-visible"),
       favorites: document.getElementById("stat-favorites"),
       favoriteCount: document.getElementById("favorite-count"),
-      resultCount: document.getElementById("result-count")
+      resultCount: document.getElementById("result-count"),
+      googlePanel: document.getElementById("forms"),
+      modeButtons: document.querySelectorAll("[data-mode-btn]")
     };
 
     const storeKey = "bobyo20260720-favorites-v3";
@@ -1035,6 +1113,19 @@
       const id = button.getAttribute("data-fav-btn") || button.getAttribute("data-remove-fav");
       toggleFavorite(id);
     });
+
+    const setGoogleMode = (mode) => {
+      els.googlePanel.dataset.mode = mode;
+      els.modeButtons.forEach((button) => {
+        button.dataset.active = String(button.getAttribute("data-mode-btn") === mode);
+      });
+    };
+
+    els.modeButtons.forEach((button) => {
+      button.addEventListener("click", () => setGoogleMode(button.getAttribute("data-mode-btn")));
+    });
+
+    setGoogleMode("compact");
 
     ["input", "change"].forEach((type) => {
       [els.search, els.platform, els.genre, els.sort].forEach((element) => {
