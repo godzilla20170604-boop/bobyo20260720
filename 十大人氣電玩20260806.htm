@@ -3,10 +3,1137 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="refresh" content="0; url=./index.html">
-  <title>2026 十大人氣遊戲｜請前往首頁</title>
+  <title>2026 十大人氣遊戲｜原網址首頁</title>
+  <meta name="description" content="2026 十大人氣遊戲首頁，整合排行、搜尋、收藏、網站架構與 Google 表單。">
+  <meta name="theme-color" content="#0b1220">
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#08101b;
+      --bg-2:#0d1726;
+      --panel:#111d2f;
+      --panel-2:#16263b;
+      --line:rgba(148,163,184,.18);
+      --text:#ecf2ff;
+      --muted:#9fb0c9;
+      --accent:#ffb703;
+      --accent-2:#2dd4bf;
+      --accent-3:#fb7185;
+      --shadow:0 24px 60px rgba(0,0,0,.28);
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      min-height:100vh;
+      font-family:"Noto Sans TC", sans-serif;
+      color:var(--text);
+      background:
+        linear-gradient(180deg, rgba(8,16,27,.85), rgba(8,16,27,.95)),
+        url("images/電玩.jpg") center top/cover fixed;
+    }
+
+    a{color:inherit}
+    img{max-width:100%;display:block}
+    .shell{width:min(1180px, calc(100% - 2rem)); margin:0 auto}
+    .panel{
+      background:linear-gradient(180deg, rgba(17,29,47,.95), rgba(11,19,31,.96));
+      border:1px solid var(--line);
+      box-shadow:var(--shadow);
+      border-radius:20px;
+    }
+    .soft-panel{
+      background:rgba(17,29,47,.72);
+      border:1px solid var(--line);
+      border-radius:18px;
+    }
+    .title-font{font-family:"Orbitron", "Noto Sans TC", sans-serif}
+    .text-balance{text-wrap:balance}
+    .hero{
+      position:relative;
+      padding:1rem 0 2rem;
+      overflow:hidden;
+    }
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(180deg, rgba(4,10,18,.18), rgba(4,10,18,.72)),
+        linear-gradient(135deg, rgba(45,212,191,.10), transparent 30%, rgba(255,183,3,.10) 58%, transparent 84%);
+      pointer-events:none;
+    }
+    .hero-grid{
+      position:relative;
+      display:grid;
+      grid-template-columns:1.15fr .85fr;
+      gap:1rem;
+      align-items:stretch;
+      min-height:520px;
+      padding-top:1rem;
+    }
+    .hero-copy{
+      padding:2rem;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      gap:1.5rem;
+    }
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:.5rem;
+      width:max-content;
+      padding:.45rem .85rem;
+      border-radius:999px;
+      background:rgba(255,183,3,.12);
+      border:1px solid rgba(255,183,3,.25);
+      color:#ffd36a;
+      font-size:.88rem;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      font-weight:700;
+    }
+    .hero h1{
+      margin:.6rem 0 .75rem;
+      font-size:clamp(2.4rem, 5vw, 5rem);
+      line-height:1.02;
+      letter-spacing:0;
+    }
+    .hero p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.8;
+      max-width:58ch;
+      font-size:1.02rem;
+    }
+    .hero-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:.75rem;
+      margin-top:.25rem;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:.55rem;
+      min-height:44px;
+      padding:.85rem 1.05rem;
+      border-radius:12px;
+      border:1px solid transparent;
+      text-decoration:none;
+      font-weight:700;
+      transition:transform .16s ease, border-color .16s ease, background-color .16s ease, opacity .16s ease;
+    }
+    .btn:hover{transform:translateY(-1px)}
+    .btn-primary{background:linear-gradient(135deg, var(--accent), #ffd166); color:#18202d}
+    .btn-secondary{background:rgba(255,255,255,.05); border-color:rgba(255,255,255,.12)}
+    .btn-ghost{background:rgba(45,212,191,.10); border-color:rgba(45,212,191,.24); color:#d6fffb}
+    .hero-art{
+      position:relative;
+      min-height:100%;
+      overflow:hidden;
+      border-radius:20px;
+      background:
+        linear-gradient(180deg, rgba(8,16,27,.12), rgba(8,16,27,.76)),
+        url("images/2025~2026game.jpg") center/cover;
+      border:1px solid var(--line);
+      box-shadow:var(--shadow);
+    }
+    .hero-art .badge{
+      position:absolute;
+      left:1rem;
+      bottom:1rem;
+      padding:.7rem .9rem;
+      border-radius:14px;
+      background:rgba(8,16,27,.82);
+      border:1px solid rgba(255,255,255,.1);
+      backdrop-filter:blur(12px);
+    }
+    .hero-art .badge strong{display:block;font-size:1.05rem}
+    .hero-art .badge span{color:var(--muted);font-size:.92rem}
+    .stats{
+      display:grid;
+      grid-template-columns:repeat(4, minmax(0,1fr));
+      gap:.75rem;
+    }
+    .stat{
+      padding:1rem;
+      border-radius:16px;
+      background:rgba(15,24,38,.62);
+      border:1px solid var(--line);
+    }
+    .stat .num{
+      font-family:"Orbitron", sans-serif;
+      font-size:1.45rem;
+      color:#fff7d1;
+    }
+    .stat .label{display:block;margin-top:.25rem;color:var(--muted);font-size:.9rem}
+    main{padding:1rem 0 3rem}
+    .stack{display:grid;gap:1rem}
+    .toolbar{
+      padding:1rem;
+      display:grid;
+      grid-template-columns:1.2fr repeat(3, minmax(0, .62fr));
+      gap:.75rem;
+      align-items:end;
+    }
+    .field label{
+      display:block;
+      margin-bottom:.45rem;
+      font-size:.88rem;
+      color:#c5d1e5;
+      font-weight:700;
+    }
+    .field input,
+    .field select{
+      width:100%;
+      min-height:46px;
+      border-radius:12px;
+      border:1px solid rgba(148,163,184,.24);
+      background:rgba(6,12,20,.75);
+      color:var(--text);
+      padding:.75rem .95rem;
+      outline:none;
+    }
+    .field input::placeholder{color:#7f90ab}
+    .field input:focus,
+    .field select:focus{
+      border-color:rgba(45,212,191,.55);
+      box-shadow:0 0 0 3px rgba(45,212,191,.12);
+    }
+    .pill-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:.6rem;
+      align-items:center;
+    }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:.45rem;
+      padding:.55rem .8rem;
+      border-radius:999px;
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.08);
+      color:#dbe7fb;
+      font-size:.88rem;
+    }
+    .pill strong{color:#fff}
+    .section-title{
+      margin:0 0 .7rem;
+      font-size:1.5rem;
+      line-height:1.25;
+    }
+    .section-copy{
+      margin:0;
+      color:var(--muted);
+      line-height:1.75;
+    }
+    .meta-grid{
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:1rem;
+      align-items:start;
+    }
+    .sidebar{
+      padding:1rem;
+      position:sticky;
+      top:1rem;
+    }
+    .favorite-list{
+      display:flex;
+      flex-wrap:wrap;
+      gap:.55rem;
+      margin-top:.85rem;
+      min-height:44px;
+    }
+    .mini-chip{
+      display:inline-flex;
+      align-items:center;
+      gap:.4rem;
+      padding:.55rem .75rem;
+      border-radius:999px;
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.08);
+      color:#eff6ff;
+      font-size:.86rem;
+    }
+    .mini-chip button{
+      all:unset;
+      display:inline-flex;
+      align-items:center;
+      cursor:pointer;
+      color:#9fb0c9;
+    }
+    .game-grid{
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0,1fr));
+      gap:1rem;
+    }
+    .game-card{
+      overflow:hidden;
+      background:linear-gradient(180deg, rgba(17,29,47,.96), rgba(11,19,31,.96));
+      border:1px solid var(--line);
+      border-radius:18px;
+      box-shadow:var(--shadow);
+    }
+    .game-cover{
+      position:relative;
+      aspect-ratio:16/10;
+      overflow:hidden;
+      background:
+        linear-gradient(135deg, rgba(45,212,191,.22), rgba(255,183,3,.16)),
+        #0d1726;
+    }
+    .game-cover img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+    .rank-badge{
+      position:absolute;
+      top:1rem;
+      left:1rem;
+      display:inline-flex;
+      align-items:center;
+      gap:.35rem;
+      padding:.5rem .7rem;
+      border-radius:999px;
+      background:rgba(8,16,27,.78);
+      border:1px solid rgba(255,255,255,.1);
+      backdrop-filter:blur(10px);
+      font-family:"Orbitron", sans-serif;
+      font-weight:900;
+    }
+    .fav-btn{
+      position:absolute;
+      top:1rem;
+      right:1rem;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:42px;
+      height:42px;
+      border-radius:999px;
+      background:rgba(8,16,27,.78);
+      border:1px solid rgba(255,255,255,.1);
+      color:#dbe7fb;
+      cursor:pointer;
+    }
+    .fav-btn[data-active="true"]{
+      color:#ff86a6;
+      border-color:rgba(251,113,133,.34);
+      box-shadow:0 0 0 3px rgba(251,113,133,.10);
+    }
+    .game-body{padding:1rem 1rem 1.1rem}
+    .game-body h3{
+      margin:0;
+      font-size:1.28rem;
+      line-height:1.25;
+    }
+    .subline{
+      margin:.25rem 0 .8rem;
+      color:var(--muted);
+      font-size:.92rem;
+    }
+    .tags{
+      display:flex;
+      flex-wrap:wrap;
+      gap:.45rem;
+      margin-bottom:.8rem;
+    }
+    .tag{
+      display:inline-flex;
+      align-items:center;
+      gap:.35rem;
+      padding:.42rem .68rem;
+      border-radius:999px;
+      font-size:.8rem;
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.08);
+      color:#d9e5f7;
+    }
+    .tag.primary{
+      background:rgba(255,183,3,.12);
+      border-color:rgba(255,183,3,.18);
+      color:#ffe49a;
+    }
+    .tag.teal{
+      background:rgba(45,212,191,.12);
+      border-color:rgba(45,212,191,.18);
+      color:#bdf9ef;
+    }
+    .tag.rose{
+      background:rgba(251,113,133,.12);
+      border-color:rgba(251,113,133,.18);
+      color:#ffc7d1;
+    }
+    .game-body p{
+      margin:0;
+      color:#c7d4e9;
+      line-height:1.8;
+    }
+    .highlights{
+      margin:1rem 0 0;
+      padding:0;
+      list-style:none;
+      display:grid;
+      gap:.5rem;
+    }
+    .highlights li{
+      display:flex;
+      gap:.5rem;
+      align-items:flex-start;
+      color:#d8e4f7;
+      font-size:.93rem;
+      line-height:1.5;
+    }
+    .highlights svg{flex:0 0 auto; margin-top:.15rem; color:#2dd4bf}
+    .game-links{
+      margin-top:1rem;
+      display:flex;
+      flex-wrap:wrap;
+      gap:.6rem;
+    }
+    .link-btn{
+      display:inline-flex;
+      align-items:center;
+      gap:.5rem;
+      padding:.72rem .85rem;
+      border-radius:12px;
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.08);
+      text-decoration:none;
+      font-weight:700;
+      font-size:.92rem;
+    }
+    .link-btn.primary{background:rgba(255,183,3,.12); border-color:rgba(255,183,3,.24); color:#ffe39e}
+    .link-btn.secondary{background:rgba(45,212,191,.10); border-color:rgba(45,212,191,.20); color:#d8fff9}
+    .link-btn.rose{background:rgba(251,113,133,.10); border-color:rgba(251,113,133,.20); color:#ffd0d8}
+    .grid-2{
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0,1fr));
+      gap:1rem;
+    }
+    .info-card{
+      padding:1rem;
+      border-radius:16px;
+      background:rgba(255,255,255,.04);
+      border:1px solid var(--line);
+    }
+    .info-card h3{margin:0 0 .45rem; font-size:1.05rem}
+    .info-card p{margin:0; color:var(--muted); line-height:1.75}
+    .info-list{
+      display:grid;
+      gap:.75rem;
+      margin:0;
+      padding:0;
+      list-style:none;
+    }
+    .info-list li{
+      display:flex;
+      gap:.55rem;
+      align-items:flex-start;
+      color:#d7e1f2;
+      line-height:1.65;
+    }
+    .info-list svg{flex:0 0 auto; margin-top:.15rem; color:#ffb703}
+    .form-wrap{
+      padding:1rem;
+    }
+    .forms-grid{
+      display:grid;
+      grid-template-columns:minmax(0, 1fr) 420px;
+      gap:1rem;
+      align-items:start;
+    }
+    .google-panel{
+      position:sticky;
+      top:1rem;
+    }
+    .google-panel[data-mode="compact"]{
+      max-width:100%;
+    }
+    .google-toolbar{
+      display:flex;
+      flex-wrap:wrap;
+      gap:.5rem;
+      margin-top:.85rem;
+    }
+    .tool-btn{
+      display:inline-flex;
+      align-items:center;
+      gap:.45rem;
+      padding:.62rem .82rem;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.06);
+      color:#ecf2ff;
+      font-weight:700;
+      cursor:pointer;
+    }
+    .tool-btn[data-active="true"]{
+      background:rgba(255,183,3,.14);
+      border-color:rgba(255,183,3,.30);
+      color:#ffe49a;
+    }
+    .google-frame-shell{
+      margin-top:1rem;
+      overflow:hidden;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background:#fff;
+    }
+    .google-frame-shell iframe{
+      width:100%;
+      border:0;
+      display:block;
+      transition:height .2s ease, transform .2s ease;
+    }
+    .google-panel[data-mode="compact"] .google-frame-shell iframe{
+      height:760px;
+      transform:scale(.96);
+      transform-origin:top left;
+      width:104.2%;
+    }
+    .google-panel[data-mode="expanded"] .google-frame-shell iframe{
+      height:1200px;
+    }
+    .google-panel[data-mode="compact"] .google-frame-shell{
+      max-height:calc(100vh - 220px);
+      overflow:auto;
+    }
+    .google-panel[data-mode="expanded"] .google-frame-shell{
+      max-height:none;
+    }
+    .form-wrap iframe{
+      background:#fff;
+    }
+    footer{
+      padding:1.5rem 0 2.5rem;
+      color:#9fb0c9;
+    }
+    .footer-links{
+      display:flex;
+      flex-wrap:wrap;
+      gap:.6rem;
+    }
+    .footer-links a{
+      display:inline-flex;
+      align-items:center;
+      gap:.45rem;
+      padding:.7rem .85rem;
+      border-radius:999px;
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.08);
+      text-decoration:none;
+    }
+    .muted{color:var(--muted)}
+    .empty{
+      padding:1rem;
+      border-radius:16px;
+      border:1px dashed rgba(148,163,184,.28);
+      color:#c7d4e9;
+      background:rgba(255,255,255,.03);
+    }
+    .skip-link{
+      position:absolute;
+      left:-999px;
+      top:1rem;
+      background:#fff;
+      color:#111827;
+      padding:.6rem .9rem;
+      border-radius:999px;
+      z-index:50;
+    }
+    .skip-link:focus{left:1rem}
+    @media (max-width: 1024px){
+      .hero-grid,
+      .meta-grid,
+      .toolbar,
+      .grid-2{grid-template-columns:1fr}
+      .sidebar{position:static}
+      .game-grid{grid-template-columns:1fr}
+      .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .hero-copy{padding:1.25rem}
+      .forms-grid{grid-template-columns:1fr}
+      .google-panel{position:static}
+    }
+    @media (max-width: 640px){
+      .shell{width:min(100% - 1rem, 1180px)}
+      .hero h1{font-size:clamp(2rem, 12vw, 3.25rem)}
+      .stats{grid-template-columns:1fr}
+      .hero-actions,.pill-row,.footer-links,.game-links{width:100%}
+      .btn,.link-btn{width:100%}
+      .hero-art{min-height:260px}
+    }
+  </style>
 </head>
 <body>
-  <p>頁面已搬到首頁，請前往 <a href="./index.html">index.html</a>。</p>
+  <a class="skip-link" href="#content">跳到主要內容</a>
+
+  <header class="hero">
+    <div class="shell hero-grid">
+      <section class="panel hero-copy">
+        <div>
+          <div class="eyebrow">
+            <i data-lucide="sparkles" class="w-4 h-4"></i>
+            2026 更新版
+          </div>
+          <h1 class="title-font text-balance">2026 十大人氣遊戲</h1>
+          <p class="text-balance">
+            這一版把你重新整理的 MD 規格整併進主頁，保留原網址，並把排行、搜尋、收藏、網站架構與 Google 表單一起收進同一個可直接使用的首頁。
+          </p>
+        </div>
+
+        <div class="stack">
+          <div class="stats" aria-label="網站摘要">
+            <div class="stat">
+              <span class="num" id="stat-total">10</span>
+              <span class="label">款遊戲資料</span>
+            </div>
+            <div class="stat">
+              <span class="num" id="stat-visible">10</span>
+              <span class="label">目前顯示</span>
+            </div>
+            <div class="stat">
+              <span class="num" id="stat-favorites">0</span>
+              <span class="label">收藏數</span>
+            </div>
+            <div class="stat">
+              <span class="num">2026</span>
+              <span class="label">原網址首頁</span>
+            </div>
+          </div>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#browse"><i data-lucide="search" class="w-4 h-4"></i>開始瀏覽</a>
+            <a class="btn btn-secondary" href="#structure"><i data-lucide="layout-grid" class="w-4 h-4"></i>網站架構</a>
+            <a class="btn btn-ghost" href="#forms"><i data-lucide="message-square" class="w-4 h-4"></i>留言表單</a>
+          </div>
+        </div>
+      </section>
+
+      <aside class="hero-art" aria-label="遊戲主視覺">
+        <div class="badge">
+          <strong>原網址已回到首頁</strong>
+          <span>舊深層頁會導回這裡</span>
+        </div>
+      </aside>
+    </div>
+  </header>
+
+  <main id="content">
+    <section id="browse" class="shell stack">
+      <div class="panel toolbar">
+        <div class="field">
+          <label for="search">搜尋遊戲</label>
+          <input id="search" type="search" placeholder="輸入遊戲、平台、類型或關鍵字">
+        </div>
+        <div class="field">
+          <label for="platform">平台</label>
+          <select id="platform">
+            <option value="all">全部平台</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="genre">類型</label>
+          <select id="genre">
+            <option value="all">全部類型</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="sort">排序</label>
+          <select id="sort">
+            <option value="rank">依排名</option>
+            <option value="favorites">先顯示收藏</option>
+            <option value="name">依名稱</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="pill-row panel" style="padding:1rem">
+        <span class="pill"><i data-lucide="bookmark-check" class="w-4 h-4"></i><strong id="favorite-count">0</strong> 個收藏</span>
+        <span class="pill"><i data-lucide="filter" class="w-4 h-4"></i><strong id="result-count">10</strong> 個結果</span>
+        <span class="pill"><i data-lucide="calendar-days" class="w-4 h-4"></i>更新基準：2026-08-18</span>
+      </div>
+    </section>
+
+    <section class="shell meta-grid stack" style="margin-top:1rem">
+      <main class="stack">
+        <section class="panel" style="padding:1rem">
+          <div class="flex items-start justify-between gap-4 flex-wrap">
+            <div>
+              <h2 class="section-title title-font">排行主區</h2>
+              <p class="section-copy">搜尋、篩選與收藏會即時同步，收藏資料會留在本機的 localStorage。你之後回來還能接著看。</p>
+            </div>
+            <a class="btn btn-secondary" href="#forms"><i data-lucide="external-link" class="w-4 h-4"></i>前往表單</a>
+          </div>
+          <div id="game-grid" class="game-grid" style="margin-top:1rem"></div>
+        </section>
+
+        <section id="structure" class="panel" style="padding:1rem">
+          <h2 class="section-title title-font">網站架構</h2>
+          <p class="section-copy">這一段是把你新 MD 裡的 IA 整理成可閱讀的首頁結構，方便之後改版時直接對照。</p>
+          <div class="grid-2" style="margin-top:1rem">
+            <article class="info-card">
+              <h3>1. Hero 與入口</h3>
+              <p>用首頁主視覺先說清楚主題，再提供搜尋、架構與表單的快速入口。</p>
+            </article>
+            <article class="info-card">
+              <h3>2. 排行與收藏</h3>
+              <p>十款遊戲以卡片呈現，支援關鍵字搜尋、平台與類型篩選，收藏狀態會保留在本機。</p>
+            </article>
+            <article class="info-card">
+              <h3>3. 資料欄位</h3>
+              <p>名稱、英文名、平台、類型、上市狀態、圖片、介紹、官方連結與試玩連結都保留。</p>
+            </article>
+            <article class="info-card">
+              <h3>4. 互動與回饋</h3>
+              <p>下方放留言表單與友站連結，讓首頁不只是展示頁，也能收回饋。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="panel" style="padding:1rem">
+          <h2 class="section-title title-font">資料欄位與驗證</h2>
+          <div class="grid-2" style="margin-top:1rem">
+            <article class="info-card">
+              <ul class="info-list">
+                <li><i data-lucide="badge-info" class="w-4 h-4"></i>每筆資料都保留 `rank`、`name`、`nameEn`、`platform`、`genre`、`release`、`desc`、`image`、`official`、`gameplay`。</li>
+                <li><i data-lucide="badge-info" class="w-4 h-4"></i>圖片會在載入失敗時顯示漸層備援，避免空白卡片。</li>
+                <li><i data-lucide="badge-info" class="w-4 h-4"></i>收藏按鈕會把狀態寫進 localStorage，回到頁面仍可保留。</li>
+              </ul>
+            </article>
+            <article class="info-card">
+              <ul class="info-list">
+                <li><i data-lucide="badge-info" class="w-4 h-4"></i>搜尋會同時比對中文、英文、平台、類型與內容摘要。</li>
+                <li><i data-lucide="badge-info" class="w-4 h-4"></i>排序可切成依排名、依收藏優先或依名稱。</li>
+                <li><i data-lucide="badge-info" class="w-4 h-4"></i>網站仍以原網址作為首頁入口，舊深層頁會自動回到首頁。</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+      </main>
+
+      <aside class="sidebar panel stack">
+        <div>
+          <h2 class="section-title title-font">收藏清單</h2>
+          <p class="section-copy">點愛心就會加入或移除收藏，這裡會即時更新。</p>
+        </div>
+        <div id="favorite-list" class="favorite-list" aria-live="polite"></div>
+        <div class="empty" id="favorite-empty">目前還沒有收藏，先從你最喜歡的幾款開始。</div>
+      </aside>
+    </section>
+
+    <section class="shell forms-grid" style="margin-top:1rem">
+      <div class="panel form-wrap">
+        <h2 class="section-title title-font">Facebook 貼文</h2>
+        <p class="section-copy">把之前建立的臉書貼文嵌回來，讓首頁同時保留社群內容與外部互動入口。</p>
+        <div style="margin-top:1rem; overflow:hidden; border-radius:14px; border:1px solid var(--line); background:#fff">
+          <iframe
+            src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid0SRiNe8mSkajPNDGxRCZG6vTzYAqiQuwKAtSZPRZm8Q7g6He35KvXHQ8pno7V8MBnl%26id%3D61592234627891&show_text=true&width=500"
+            width="500"
+            height="298"
+            style="border:none;overflow:hidden;width:100%;height:298px;"
+            scrolling="no"
+            frameborder="0"
+            allowfullscreen="true"
+            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+            title="Facebook 貼文嵌入"
+            loading="lazy">載入中…</iframe>
+        </div>
+      </div>
+
+      <div class="panel form-wrap google-panel" id="forms" data-mode="compact">
+        <div class="flex items-start justify-between gap-4 flex-wrap">
+          <div>
+            <h2 class="section-title title-font">Google 表單</h2>
+            <p class="section-copy">縮小後會放在右側，並保留表單內部捲動；需要看完整內容時可以切到展開模式。</p>
+          </div>
+          <div class="google-toolbar" role="group" aria-label="Google 表單顯示模式">
+            <button type="button" class="tool-btn" data-mode-btn="compact" data-active="true">
+              <i data-lucide="minimize-2" class="w-4 h-4"></i>縮小
+            </button>
+            <button type="button" class="tool-btn" data-mode-btn="expanded" data-active="false">
+              <i data-lucide="maximize-2" class="w-4 h-4"></i>展開
+            </button>
+          </div>
+        </div>
+        <div class="google-frame-shell">
+          <iframe
+            class="google-iframe"
+            src="https://docs.google.com/forms/d/e/1FAIpQLSc6j5Zk0jIDG1gQnskWPkvt6MLjPiXW6_4Gn6Q5HkUlXokhIA/viewform?embedded=true"
+            title="Google 表單"
+            height="760px"
+            scrolling="yes"
+            loading="lazy">載入中…</iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="shell">
+    <div class="panel" style="padding:1rem">
+      <div class="footer-links" aria-label="友好連結">
+        <a href="https://godzilla20170604-boop.github.io/bobyo20260720/" target="_blank" rel="noopener noreferrer"><i data-lucide="globe" class="w-4 h-4"></i>原網址首頁</a>
+        <a href="https://www.facebook.com/profile.php?id=100000238013703" target="_blank" rel="noopener noreferrer"><i data-lucide="facebook" class="w-4 h-4"></i>Facebook</a>
+        <a href="https://www.instagram.com/yichen_you/" target="_blank" rel="noopener noreferrer"><i data-lucide="instagram" class="w-4 h-4"></i>Instagram</a>
+        <a href="#top"><i data-lucide="arrow-up" class="w-4 h-4"></i>回到頂部</a>
+      </div>
+      <p style="margin:1rem 0 0; line-height:1.8">
+        這份首頁已把新的 MD 規格整併進來，維持原網址作為主要入口。資料、圖片與外部連結均以靜態頁面方式呈現。
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    const games = [
+      {
+        id: "zelda",
+        rank: 1,
+        name: "薩爾達傳說 曠野之息",
+        nameEn: "The Legend of Zelda",
+        platform: "Nintendo Switch 2",
+        genre: "動作冒險",
+        release: "2026",
+        image: "images/薩爾達傳說曠野之息.webp",
+        desc: "以開放世界探索為核心的經典代表作，這版首頁把它當成第一順位的招牌內容。",
+        highlights: ["次世代畫面感", "自由探索節奏", "解謎與戰鬥並重"],
+        official: "https://www.nintendo.com/",
+        gameplay: "https://www.youtube.com/watch?v=KzW1I8fB3K0",
+        accent: "primary"
+      },
+      {
+        id: "gta6",
+        rank: 2,
+        name: "GTA VI",
+        nameEn: "Grand Theft Auto VI",
+        platform: "PS5 / Xbox Series X|S / PC",
+        genre: "開放世界",
+        release: "2026",
+        image: "images/2025~2026game.jpg",
+        desc: "超大城市與雙主角敘事，仍然是最容易吸引目光的排行位置。",
+        highlights: ["大型開放城市", "雙主角結構", "高密度互動場景"],
+        official: "https://www.rockstargames.com/VI",
+        gameplay: "https://www.youtube.com/watch?v=QdBZY2fkU-0",
+        accent: "rose"
+      },
+      {
+        id: "wilds",
+        rank: 3,
+        name: "Monster Hunter Wilds",
+        nameEn: "Monster Hunter Wilds",
+        platform: "PS5 / Xbox / PC",
+        genre: "動作狩獵",
+        release: "2026",
+        image: "images/魔物獵人荒野.png",
+        desc: "狩獵節奏更順、更大場景、更適合跟朋友一起進場。",
+        highlights: ["無縫地圖", "動態生態", "共鬥手感升級"],
+        official: "https://www.monsterhunter.com/wilds/en-us/",
+        gameplay: "https://www.youtube.com/watch?v=MbLfPg6nNc0",
+        accent: "teal"
+      },
+      {
+        id: "ds2",
+        rank: 4,
+        name: "死亡擱淺 2",
+        nameEn: "Death Stranding 2: On The Beach",
+        platform: "PS5",
+        genre: "動作冒險",
+        release: "2026",
+        image: "images/DS2_Preorder_Date.jpg",
+        desc: "延續連結主題與小島式敘事，適合放在首頁的中前段強調氣質。",
+        highlights: ["獨特敘事風格", "戰鬥與潛行", "世界觀辨識度高"],
+        official: "https://www.playstation.com/",
+        gameplay: "https://www.youtube.com/watch?v=8aMVMY4yDDI",
+        accent: "primary"
+      },
+      {
+        id: "nightreign",
+        rank: 5,
+        name: "艾爾登法環：黑夜君臨",
+        nameEn: "Elden Ring: Nightreign",
+        platform: "PS5 / Xbox / PC",
+        genre: "動作 RPG",
+        release: "2026",
+        image: "images/page_bg_raw.jpg",
+        desc: "高難度合作玩法仍然很有話題，卡片文案也很適合承接 spec 裡的內容欄位。",
+        highlights: ["合作挑戰", "RPG 成長線", "高辨識黑暗奇幻"],
+        official: "https://en.bandainamcoent.eu/elden-ring",
+        gameplay: "https://www.youtube.com/watch?v=jQlXWRJeYBw",
+        accent: "teal"
+      },
+      {
+        id: "yotei",
+        rank: 6,
+        name: "羊蹄山戰鬼",
+        nameEn: "Ghost of Yotei",
+        platform: "PS5",
+        genre: "動作冒險",
+        release: "2026",
+        image: "images/羊蹄山戰鬼.avif",
+        desc: "延續日式美學與劍戟張力，視覺資產也很完整，放在首頁中段很穩。",
+        highlights: ["北海道場景", "戰鬥節奏洗鍊", "武士題材"],
+        official: "https://www.playstation.com/",
+        gameplay: "https://www.youtube.com/watch?v=pjI09zFXaEw",
+        accent: "rose"
+      },
+      {
+        id: "bond",
+        rank: 7,
+        name: "007 初露鋒芒",
+        nameEn: "007 First Light",
+        platform: "PS5 / Xbox / PC",
+        genre: "諜報動作",
+        release: "未定",
+        image: "images/img_01.avif",
+        desc: "年輕版 James Bond 的起源故事，適合做為有點神秘感的第七名。",
+        highlights: ["諜報潛行", "角色起源", "全球任務"],
+        official: "https://ioi.dk/007firstlightgame",
+        gameplay: "https://ioi.dk/007firstlightgame",
+        accent: "primary"
+      },
+      {
+        id: "shadows",
+        rank: 8,
+        name: "刺客教條：暗影者",
+        nameEn: "Assassin's Creed Shadows",
+        platform: "PS5 / Xbox / PC",
+        genre: "動作 RPG",
+        release: "2026",
+        image: "images/刺客教條：暗影者.jpg",
+        desc: "日本舞台與雙主角機制讓它很適合被做成搜尋後的高命中內容。",
+        highlights: ["戰國日本", "雙主角", "潛行與正面作戰"],
+        official: "https://www.ubisoft.com/",
+        gameplay: "https://www.youtube.com/watch?v=tY0HfLWgVuE",
+        accent: "teal"
+      },
+      {
+        id: "pragmata",
+        rank: 9,
+        name: "PRAGMATA",
+        nameEn: "PRAGMATA",
+        platform: "PS5 / Xbox / PC",
+        genre: "科幻動作",
+        release: "未定",
+        image: "images/Pragmata_cover.jpg",
+        desc: "科幻感與角色辨識度都很強，是首頁裡最容易留下印象的一張。",
+        highlights: ["科幻冒險", "高辨識角色設定", "Capcom 作品"],
+        official: "https://www.capcom-games.com/pragmata/zh-hant/",
+        gameplay: "https://www.capcom-games.com/pragmata/zh-hant/",
+        accent: "rose"
+      },
+      {
+        id: "saros",
+        rank: 10,
+        name: "SAROS",
+        nameEn: "SAROS",
+        platform: "PS5",
+        genre: "科幻動作",
+        release: "未定",
+        image: "images/電玩.jpg",
+        desc: "壓在最後一格的壓軸卡，讓整體頁面視覺有完整收尾。",
+        highlights: ["新宇宙題材", "動作導向", "視覺風格鮮明"],
+        official: "https://housemarque.com/games/saros",
+        gameplay: "https://housemarque.com/games/saros",
+        accent: "primary"
+      }
+    ];
+
+    const els = {
+      search: document.getElementById("search"),
+      platform: document.getElementById("platform"),
+      genre: document.getElementById("genre"),
+      sort: document.getElementById("sort"),
+      grid: document.getElementById("game-grid"),
+      favoriteList: document.getElementById("favorite-list"),
+      favoriteEmpty: document.getElementById("favorite-empty"),
+      total: document.getElementById("stat-total"),
+      visible: document.getElementById("stat-visible"),
+      favorites: document.getElementById("stat-favorites"),
+      favoriteCount: document.getElementById("favorite-count"),
+      resultCount: document.getElementById("result-count"),
+      googlePanel: document.getElementById("forms"),
+      modeButtons: document.querySelectorAll("[data-mode-btn]")
+    };
+
+    const storeKey = "bobyo20260720-favorites-v3";
+    const favoriteIds = new Set(JSON.parse(localStorage.getItem(storeKey) || "[]"));
+
+    const iconMarkup = {
+      check: '<i data-lucide="check-circle-2" class="w-4 h-4"></i>',
+      trailer: '<i data-lucide="play-circle" class="w-4 h-4"></i>',
+      link: '<i data-lucide="external-link" class="w-4 h-4"></i>',
+      heart: '<i data-lucide="heart" class="w-5 h-5"></i>',
+      heartFill: '<i data-lucide="heart" class="w-5 h-5"></i>'
+    };
+
+    const uniqueValues = (key) => [...new Set(games.flatMap((game) => game[key].split("/").map((value) => value.trim())))]
+      .filter(Boolean)
+      .sort((a, b) => a.localeCompare(b, "zh-Hant"));
+
+    const fillSelect = (select, values) => {
+      values.forEach((value) => {
+        const option = document.createElement("option");
+        option.value = value;
+        option.textContent = value;
+        select.appendChild(option);
+      });
+    };
+
+    fillSelect(els.platform, uniqueValues("platform"));
+    fillSelect(els.genre, uniqueValues("genre"));
+
+    const saveFavorites = () => {
+      localStorage.setItem(storeKey, JSON.stringify([...favoriteIds]));
+    };
+
+    const matchesQuery = (game, query) => {
+      if (!query) return true;
+      const haystack = [
+        game.name,
+        game.nameEn,
+        game.platform,
+        game.genre,
+        game.release,
+        game.desc,
+        ...game.highlights
+      ].join(" ").toLowerCase();
+      return haystack.includes(query.toLowerCase());
+    };
+
+    const matchesField = (value, filter) => filter === "all" || value.split("/").map((item) => item.trim()).includes(filter);
+
+    const getVisibleGames = () => {
+      const query = els.search.value.trim();
+      const platform = els.platform.value;
+      const genre = els.genre.value;
+      const sort = els.sort.value;
+
+      const filtered = games.filter((game) => {
+        return matchesQuery(game, query) && matchesField(game.platform, platform) && matchesField(game.genre, genre);
+      });
+
+      filtered.sort((a, b) => {
+        if (sort === "name") return a.name.localeCompare(b.name, "zh-Hant");
+        if (sort === "favorites") {
+          const diff = Number(favoriteIds.has(b.id)) - Number(favoriteIds.has(a.id));
+          return diff || a.rank - b.rank;
+        }
+        return a.rank - b.rank;
+      });
+
+      return filtered;
+    };
+
+    const renderFavorites = () => {
+      const favorites = games.filter((game) => favoriteIds.has(game.id));
+      els.favoriteList.innerHTML = favorites.length
+        ? favorites.map((game) => `
+            <span class="mini-chip">
+              ${game.rank}. ${game.name}
+              <button type="button" aria-label="移除 ${game.name} 收藏" data-remove-fav="${game.id}">
+                <i data-lucide="x" class="w-3.5 h-3.5"></i>
+              </button>
+            </span>
+          `).join("")
+        : "";
+      els.favoriteEmpty.style.display = favorites.length ? "none" : "block";
+    };
+
+    const cardTemplate = (game) => {
+      const isFav = favoriteIds.has(game.id);
+      return `
+        <article class="game-card" data-id="${game.id}">
+          <div class="game-cover">
+            <img src="${game.image}" alt="${game.name}" loading="lazy">
+            <div class="rank-badge">#${game.rank}</div>
+            <button type="button" class="fav-btn" data-fav-btn="${game.id}" data-active="${isFav}">
+              ${iconMarkup.heart}
+            </button>
+          </div>
+          <div class="game-body">
+            <h3>${game.name}</h3>
+            <div class="subline">${game.nameEn}</div>
+            <div class="tags">
+              <span class="tag ${game.accent}">${game.genre}</span>
+              <span class="tag"><i data-lucide="monitor-play" class="w-3.5 h-3.5"></i>${game.platform}</span>
+              <span class="tag"><i data-lucide="calendar-days" class="w-3.5 h-3.5"></i>${game.release}</span>
+            </div>
+            <p>${game.desc}</p>
+            <ul class="highlights">
+              ${game.highlights.map((item) => `<li>${iconMarkup.check}<span>${item}</span></li>`).join("")}
+            </ul>
+            <div class="game-links">
+              <a class="link-btn primary" href="${game.official}" target="_blank" rel="noopener noreferrer">${iconMarkup.link}<span>官方連結</span></a>
+              <a class="link-btn secondary" href="${game.gameplay}" target="_blank" rel="noopener noreferrer">${iconMarkup.trailer}<span>預告 / 試玩</span></a>
+            </div>
+          </div>
+        </article>
+      `;
+    };
+
+    const render = () => {
+      const visibleGames = getVisibleGames();
+      els.grid.innerHTML = visibleGames.length
+        ? visibleGames.map(cardTemplate).join("")
+        : '<div class="empty">找不到符合條件的遊戲，試試看換個搜尋字或清空篩選。</div>';
+
+      els.total.textContent = games.length;
+      els.visible.textContent = visibleGames.length;
+      els.favoriteCount.textContent = favoriteIds.size;
+      els.favorites.textContent = favoriteIds.size;
+      els.resultCount.textContent = visibleGames.length;
+
+      renderFavorites();
+      lucide.createIcons();
+    };
+
+    const toggleFavorite = (id) => {
+      if (favoriteIds.has(id)) {
+        favoriteIds.delete(id);
+      } else {
+        favoriteIds.add(id);
+      }
+      saveFavorites();
+      render();
+    };
+
+    document.addEventListener("click", (event) => {
+      const button = event.target.closest("[data-fav-btn], [data-remove-fav]");
+      if (!button) return;
+      const id = button.getAttribute("data-fav-btn") || button.getAttribute("data-remove-fav");
+      toggleFavorite(id);
+    });
+
+    const setGoogleMode = (mode) => {
+      els.googlePanel.dataset.mode = mode;
+      els.modeButtons.forEach((button) => {
+        button.dataset.active = String(button.getAttribute("data-mode-btn") === mode);
+      });
+    };
+
+    els.modeButtons.forEach((button) => {
+      button.addEventListener("click", () => setGoogleMode(button.getAttribute("data-mode-btn")));
+    });
+
+    setGoogleMode("compact");
+
+    ["input", "change"].forEach((type) => {
+      [els.search, els.platform, els.genre, els.sort].forEach((element) => {
+        element.addEventListener(type, render);
+      });
+    });
+
+    render();
+  </script>
 </body>
 </html>
